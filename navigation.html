@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Smart Campus Navigation | Tech Enabled Campus
+    </title>
+
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="navbar.css">
+     <link rel="stylesheet" href="mobile.css">
+
+    <style>
+        /* PAGE LAYOUT FIXES */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #080f21;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navigation-main {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* SEARCH BAR */
+
+        .navigation-main .search-area {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: stretch;
+            justify-content: center;
+            gap: 12px;
+            width: calc(100% - 40px);
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0;
+        }
+
+        .navigation-main .search-area input {
+            display: block;
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            height: 55px;
+            padding: 0 20px;
+            background: #142540;
+            color: white;
+            border: 1px solid #365676;
+            border-radius: 12px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .navigation-main .search-area input:focus {
+            border-color: #00eaff;
+        }
+
+        .navigation-main .search-area button {
+            display: block !important;
+            position: static !important;
+            flex: 0 0 auto;
+            width: auto;
+            min-width: 140px;
+            height: 55px;
+            padding: 0 22px;
+            background: #00dce8;
+            color: #071426;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navigation-main .search-area button:hover {
+            background: #70f5f7;
+        }
+
+        /* CATEGORY FILTERS */
+
+        .navigation-main .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            margin: 20px auto 50px;
+        }
+
+        .navigation-main .filter-btn {
+            padding: 12px 18px;
+            border: 1px solid #365676;
+            border-radius: 10px;
+            background: #172b49;
+            color: #d4e5f6;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .navigation-main .filter-btn:hover,
+        .navigation-main .filter-btn.active {
+            background: #00dce8;
+            color: #071426;
+            border-color: #00dce8;
+        }
+
+        /* CAMPUS MAP */
+
+        .navigation-main .campus-map-section {
+            display: block !important;
+            width: calc(100% - 40px);
+            max-width: 1250px;
+            margin: 55px auto;
+            padding: 30px;
+            background: #101e38;
+            border: 1px solid #34516a;
+            border-radius: 20px;
+        }
+
+        .navigation-main .map-heading {
+            display: block;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .navigation-main .map-heading span {
+            color: #00eaff;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .navigation-main .map-heading h2 {
+            color: white;
+            font-size: 30px;
+            margin: 12px 0;
+        }
+
+        .navigation-main .map-heading p {
+            color: #b9cbe0;
+            line-height: 1.7;
+        }
+
+        .navigation-main .campus-map-container {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .navigation-main .campus-layout {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 750px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .navigation-main .map-locations {
+            margin-top: 30px;
+        }
+
+        .navigation-main .map-locations h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .navigation-main .map-locations .location-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .navigation-main .map-locations button {
+            padding: 12px 18px;
+            background: #172b49;
+            color: #d5f8ff;
+            border: 1px solid #32718a;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .navigation-main .map-locations button:hover {
+            background: #00eaff;
+            color: #071426;
+        }
+
+        .navigation-main .selected-location {
+            margin-top: 25px;
+            padding: 20px;
+            background: #0b172c;
+            border-left: 4px solid #00eaff;
+            border-radius: 10px;
+            color: #e7f7ff;
+        }
+
+        /* DIRECTORY ALIGNMENT */
+
+        .navigation-main .directory-section {
+            display: block !important;
+            width: calc(100% - 40px);
+            max-width: 1250px;
+            margin: 60px auto;
+            padding: 0;
+        }
+
+        .navigation-main .directory-section
+        .section-heading {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .navigation-main .directory-section
+        .section-heading span {
+            color: #00eaff;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .navigation-main .directory-section
+        .section-heading h2 {
+            color: white;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        .navigation-main .location-count {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .navigation-main .location-count strong {
+            color: #00eaff;
+            font-size: 28px;
+        }
+
+        .navigation-main .location-count span {
+            color: #b9cbe0;
+            font-size: 13px;
+        }
+
+        /* LOCATION CARDS */
+
+        .navigation-main #locationContainer {
+            display: grid !important;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navigation-main #locationContainer
+        .location-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            padding: 25px;
+            margin: 0;
+            background: linear-gradient(
+                145deg,
+                #172b49,
+                #214363
+            );
+            border: 1px solid #365676;
+            border-radius: 16px;
+            transition: 0.25s;
+        }
+
+        .navigation-main #locationContainer
+        .location-card:hover {
+            transform: translateY(-4px);
+            border-color: #00eaff;
+        }
+
+        .navigation-main .location-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .navigation-main .location-category {
+            color: #00eaff;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .navigation-main .location-card h3 {
+            color: white;
+            font-size: 20px;
+            margin: 13px 0;
+        }
+
+        .navigation-main .location-card p {
+            color: #b9cbe0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .navigation-main .location-info {
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        .navigation-main .location-info div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .navigation-main .location-info strong {
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .navigation-main .location-info span {
+            color: #b9cbe0;
+            font-size: 13px;
+        }
+
+        .navigation-main .location-card
+        .location-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .navigation-main .location-card
+        .location-buttons button {
+            flex: 1;
+            min-width: 95px;
+            padding: 12px;
+            background: #00dce8;
+            color: #071426;
+            border: none;
+            border-radius: 9px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navigation-main .location-card
+        .location-buttons button:last-child {
+            background: transparent;
+            color: #00eaff;
+            border: 1px solid #00eaff;
+        }
+
+        .navigation-main .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            background: #172b49;
+            border-radius: 15px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .navigation-main #locationContainer {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navigation-main .search-area {
+                flex-direction: column !important;
+            }
+
+            .navigation-main .search-area button {
+                width: 100%;
+            }
+
+            .navigation-main .campus-map-section {
+                padding: 17px;
+            }
+
+            .navigation-main #locationContainer {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation-main .directory-section
+            .section-heading h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- COMMON NAVIGATION -->
+
+    <header id="commonNavbar"></header>
+
+
+    <main class="navigation-main">
+
+        <!-- PAGE INTRO -->
+
+        <section class="intro">
+
+            <div class="online-status">
+                ● CAMPUS NAVIGATION ONLINE
+            </div>
+
+            <h1>
+                SMART CAMPUS
+                <span>NAVIGATION</span>
+            </h1>
+
+            <p>
+                Find departments, laboratories,
+                restrooms, drinking water,
+                library, canteen and other
+                important campus locations.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <section class="search-area">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search department, library, canteen..."
+                aria-label="Search campus locations"
+            >
+
+            <button
+                type="button"
+                id="searchButton"
+                onclick="searchLocations()">
+                🔍 Search
+            </button>
+
+        </section>
+
+
+        <!-- FILTERS -->
+
+        <section class="filters">
+
+            <button
+                type="button"
+                class="filter-btn active"
+                onclick="filterLocations('all', this)">
+                All
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('department', this)">
+                🏫 Departments
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('lab', this)">
+                💻 Laboratories
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('restroom', this)">
+                🚻 Restrooms
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('water', this)">
+                💧 Water
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('library', this)">
+                📚 Library
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('canteen', this)">
+                🍴 Canteen
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('auditorium', this)">
+                🎤 Auditorium
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('office', this)">
+                🏢 Office
+            </button>
+
+            <button
+                type="button"
+                class="filter-btn"
+                onclick="filterLocations('sports', this)">
+                🏃 Sports
+            </button>
+
+        </section>
+
+
+        <!-- COLLEGE CAMPUS MAP -->
+
+        <section
+            class="campus-map-section"
+            id="campusMap">
+
+            <div class="map-heading">
+
+                <span>
+                    INTERACTIVE CAMPUS GUIDE
+                </span>
+
+                <h2>Explore Our College</h2>
+
+                <p>
+                    View the campus layout and select
+                    a location to find its details.
+                </p>
+
+            </div>
+
+
+            <div class="campus-map-container">
+
+                <img
+                    src="./campus-map.jpg"
+                    alt="Sri GVG Visalakshi College campus map"
+                    class="campus-layout"
+                    onerror="
+                        this.style.display='none';
+                        document.getElementById('mapError')
+                        .style.display='block';
+                    "
+                >
+
+                <p
+                    id="mapError"
+                    style="display:none;color:#d63030;">
+                    Campus map image not found.
+                    Check that campus-map.jpg
+                    is in the project folder.
+                </p>
+
+            </div>
+
+
+            <!-- MAP LOCATION BUTTONS -->
+
+            <div class="map-locations">
+
+                <h3>Find a Campus Location</h3>
+
+                <div class="location-buttons">
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Main Block')">
+                        🏫 Main Block
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Library')">
+                        📚 Library
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Auditorium')">
+                        🎤 Auditorium
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Hostel')">
+                        🏠 Hostel
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Parking')">
+                        🚗 Parking
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="showMapLocation('Main Entrance')">
+                        🚪 Main Entrance
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="selectedMapLocation"
+                    class="selected-location"
+                    aria-live="polite">
+
+                    Select a location to view its details.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAMPUS DIRECTORY -->
+
+        <section
+            class="directory-section"
+            id="campusDirectory">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        📍 CAMPUS DIRECTORY
+                    </span>
+
+                    <h2>Find a Location</h2>
+
+                </div>
+
+
+                <div class="location-count">
+
+                    <strong id="locationCount">
+                        12
+                    </strong>
+
+                    <span>locations</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- JAVASCRIPT DISPLAYS ALL CARDS HERE -->
+
+            <div
+                id="locationContainer"
+                class="location-grid"
+                aria-live="polite">
+            </div>
+
+        </section>
+
+
+        <!-- STUDENT QUERY -->
+
+        <section class="query-section">
+
+            <div class="query-heading">
+
+                <span>
+                    💬 STUDENT SUPPORT
+                </span>
+
+                <h2>
+                    Can't Find What You Need?
+                </h2>
+
+                <p>
+                    Send your requirement
+                    to the administration.
+                </p>
+
+            </div>
+
+
+            <form id="navigationQueryForm">
+
+                <input
+                    type="text"
+                    id="queryName"
+                    placeholder="Your Name"
+                    maxlength="80"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="querySubject"
+                    placeholder="Subject"
+                    maxlength="120"
+                    required
+                >
+
+                <textarea
+                    id="queryMessage"
+                    placeholder="Describe your requirement..."
+                    maxlength="1000"
+                    rows="5"
+                    required>
+                </textarea>
+
+                <button type="submit">
+                    Submit Query
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+
+            <strong>
+                ⚡ TECH ENABLED CAMPUS
+            </strong>
+
+            <p>
+                Sri GVG Visalakshi College
+            </p>
+
+        </div>
+
+        <span>
+            Technology • Innovation • Education
+        </span>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="navbar.js"></script>
+
+    <script src="navigation.js"></script>
+
+</body>
+</html>

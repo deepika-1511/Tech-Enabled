@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found | Tech Enabled Campus</title>
+    <link rel="stylesheet" href="lost-found.css">
+    <link rel="stylesheet" href="navbar.css">
+     <link rel="stylesheet" href="mobile.css">
+    <script src="navbar.js" defer></script>
+    <script src="lost-found.js" defer></script>
+</head>
+<body>
+
+<header id="commonNavbar"></header>
+
+<section class="hero">
+    <span class="tag">● SMART CAMPUS SERVICES</span>
+    <h1>LOST <span>& FOUND🔍</span></h1>
+    <p>
+        Lost something on campus? Found someone's belongings?
+        Help reconnect students with their missing items.
+    </p>
+
+    <div class="hero-actions">
+        <a href="#report" class="primary-btn">+ Report an Item</a>
+        <a href="#browse" class="outline-btn">Browse Reports ↓</a>
+    </div>
+</section>
+
+<main>
+    <section class="stats">
+        <div class="stat">
+            <span>LOST REPORTS</span>
+            <strong id="lostCount">0</strong>
+        </div>
+        <div class="stat">
+            <span>FOUND REPORTS</span>
+            <strong id="foundCount">0</strong>
+        </div>
+        <div class="stat">
+            <span>RETURNED ITEMS</span>
+            <strong id="returnedCount">0</strong>
+        </div>
+    </section>
+
+    <section id="report" class="report-section">
+        <div class="section-heading">
+            <span>SUBMIT A REPORT</span>
+            <h2>Report an Item</h2>
+            <p>
+                Provide details to help identify the item.
+                Avoid including sensitive personal information.
+            </p>
+        </div>
+
+        <form id="reportForm" class="form-card">
+            <div class="form-grid">
+                <div>
+                    <label for="reportType">Report Type</label>
+                    <select id="reportType" required>
+                        <option value="Lost">I lost an item</option>
+                        <option value="Found">I found an item</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="itemCategory">Category</label>
+                    <select id="itemCategory" required>
+                        <option value="">Select category</option>
+                        <option>Electronics</option>
+                        <option>Books</option>
+                        <option>ID Cards</option>
+                        <option>Bags</option>
+                        <option>Keys</option>
+                        <option>Accessories</option>
+                        <option>Water Bottles</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="itemName">Item Name</label>
+                    <input id="itemName" type="text"
+                           maxlength="80"
+                           placeholder="e.g. Black water bottle"
+                           required>
+                </div>
+
+                <div>
+                    <label for="itemLocation">Location</label>
+                    <input id="itemLocation" type="text"
+                           maxlength="100"
+                           placeholder="e.g. Library entrance"
+                           required>
+                </div>
+
+                <div>
+                    <label for="itemDate">Date</label>
+                    <input id="itemDate" type="date" required>
+                </div>
+
+                <div>
+                    <label for="reporterName">Your Name</label>
+                    <input id="reporterName" type="text"
+                           maxlength="80" required>
+                </div>
+
+                <div>
+                    <label for="reporterClass">Department / Class</label>
+                    <input id="reporterClass" type="text"
+                           maxlength="80"
+                           placeholder="e.g. III B.Sc. CS"
+                           required>
+                </div>
+
+                <div>
+                    <label for="contact">Contact Email</label>
+                    <input id="contact" type="email"
+                           placeholder="student@example.com"
+                           required>
+                </div>
+            </div>
+
+            <label for="description">Item Description</label>
+            <textarea id="description" rows="4"
+                      maxlength="500"
+                      placeholder="Describe the colour, size and other general details."
+                      required></textarea>
+
+            <button type="submit" class="primary-btn">
+                Submit Report →
+            </button>
+
+            <p id="formMessage" class="message"
+               role="status"></p>
+        </form>
+    </section>
+
+    <section id="browse" class="browse-section">
+        <div class="section-heading">
+            <span>CAMPUS ITEM DIRECTORY</span>
+            <h2>Browse Lost & Found</h2>
+            <p>Search reports to find matching belongings.</p>
+        </div>
+
+        <div class="search-controls">
+            <input id="searchItems" type="search"
+                   placeholder="🔍 Search items or locations...">
+
+            <select id="filterType">
+                <option value="All">All Reports</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+                <option value="Returned">Returned</option>
+            </select>
+
+            <select id="filterCategory">
+                <option value="All">All Categories</option>
+                <option>Electronics</option>
+                <option>Books</option>
+                <option>ID Cards</option>
+                <option>Bags</option>
+                <option>Keys</option>
+                <option>Accessories</option>
+                <option>Water Bottles</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div id="itemsGrid" class="items-grid"></div>
+    </section>
+
+    <section class="safety-note">
+        <h2>🔐 Safe Item Collection</h2>
+        <p>
+            To collect a found item, submit a claim and visit
+            the designated college office with appropriate
+            proof of ownership. Do not publish passwords,
+            full ID numbers or other private information.
+        </p>
+    </section>
+</main>
+
+<div id="claimModal" class="modal hidden">
+    <div class="modal-card">
+        <button id="closeClaim" class="close-btn"
+                type="button" aria-label="Close">×</button>
+
+        <h2>Claim Found Item</h2>
+        <p id="claimItemTitle"></p>
+
+        <form id="claimForm">
+            <label for="claimName">Your Name</label>
+            <input id="claimName" required>
+
+            <label for="claimClass">Department / Class</label>
+            <input id="claimClass" required>
+
+            <label for="claimContact">Contact Email</label>
+            <input id="claimContact" type="email" required>
+
+            <label for="claimProof">Proof of Ownership</label>
+            <textarea id="claimProof" rows="3"
+                      placeholder="Describe a distinguishing feature. Do not enter passwords."
+                      required></textarea>
+
+            <button type="submit" class="primary-btn">
+                Submit Claim
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    ⚡ TECH ENABLED CAMPUS
+    <p>Sri GVG Visalakshi College · Lost & Found</p>
+</footer>
+
+</body>
+</html>

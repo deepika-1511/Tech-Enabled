@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tech Enabled Campus</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class ="home-header">
+
+    <div class="home-logo">
+        <span>⚡</span>
+
+        <div>
+            <strong>TECH ENABLED</strong>
+            <small>CAMPUS</small>
+        </div>
+     </div>
+     
+
+    <nav class="home-nav">
+
+        <a href="index.html" class="active">
+            Home
+        </a>
+
+        <a href="navigation.html">
+            Campus
+        </a>
+
+        <a href="library.html">
+            Library
+        </a>
+
+        <a href="blood-donation.html">
+            Blood
+        </a>
+
+        <a href="union.html">
+            Union
+        </a>
+        <a href="canteen.html">
+            Smart Canteen</a>
+            <a href="lost-found.html">Lost & Found</a>
+
+    </nav>
+
+
+    <a href="admin.html" class="home-admin">
+        Admin
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="home-hero" id="home">
+
+    <div class="hero-left">
+
+        <div class="home-status">
+            ● SMART CAMPUS ONLINE
+        </div>
+
+
+        <h1>
+            TECH
+            <span>ENABLED</span>
+            CAMPUS
+        </h1>
+        <div class="college-identity">
+        <span class="college-label">WELCOME TO</span>
+
+         <h2>Sri GVG Visalakshi College</h2>
+
+         <p>Your Campus. Your Digital World.</p>
+           </div>
+
+
+        <p class="hero-description">
+            A smart digital platform connecting students
+            with campus facilities, library, blood donation,
+            student union and essential information.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="home-search">
+
+            <input
+                type="text"
+                id="smartSearchInput"
+                placeholder="Search campus, library, blood, union..."
+            >
+
+            <button onclick="smartSearch()">
+                🔍 Search
+            </button>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="hero-buttons">
+
+            <button
+                class="explore-button"
+                onclick="openNavigation()">
+
+                🧭 Explore Campus
+
+            </button>
+
+
+            <button
+                class="library-button"
+                onclick="openLibrary()">
+
+                📚 Smart Library
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="visual-circle">
+
+            <div class="visual-core">
+                ⚡
+            </div>
+
+            <div class="orbit orbit-one">
+                🧭
+            </div>
+
+            <div class="orbit orbit-two">
+                📚
+            </div>
+
+            <div class="orbit orbit-three">
+                🩸
+            </div>
+
+            <div class="orbit orbit-four">
+                👥
+            </div>
+
+        </div>
+
+        <div class="system-card">
+
+            <span>●</span>
+
+            SYSTEM ONLINE
+
+            <small>
+                Digital Campus Network
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services-section">
+
+    <div class="section-heading">
+
+        <span>SMART CAMPUS SERVICES</span>
+
+        <h2>
+            Everything Students Need
+        </h2>
+
+        <p>
+            Access important campus services through one
+            connected digital platform.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <!-- NAVIGATION -->
+
+        <div
+            class="service-card"
+            onclick="openNavigation()">
+
+            <div class="service-icon">
+                🧭
+            </div>
+
+            <span>01</span>
+
+            <h3>
+                Smart Navigation
+            </h3>
+
+            <p>
+                Find departments, laboratories,
+                library, canteen, restrooms and
+                other campus locations.
+            </p>
+
+            <button>
+                Explore →
+            </button>
+
+        </div>
+
+
+        <!-- LIBRARY -->
+
+        <div
+            class="service-card"
+            onclick="openLibrary()">
+
+            <div class="service-icon">
+                📚
+            </div>
+
+            <span>02</span>
+
+            <h3>
+                Smart Library
+            </h3>
+
+            <p>
+                Search books, authors, categories,
+                availability and shelf locations.
+            </p>
+
+            <button>
+                Open Library →
+            </button>
+
+        </div>
+
+
+        <!-- BLOOD -->
+
+        <div
+            class="service-card"
+            onclick="openBlood()">
+
+            <div class="service-icon">
+                🩸
+            </div>
+
+            <span>03</span>
+
+            <h3>
+                Blood Donation
+            </h3>
+
+            <p>
+                Find blood donors and submit
+                emergency blood requests.
+            </p>
+
+            <button>
+                Find Donor →
+            </button>
+
+        </div>
+
+
+        <!-- UNION -->
+
+        <div
+            class="service-card"
+            onclick="openUnion()">
+
+            <div class="service-icon">
+                👥
+            </div>
+
+            <span>04</span>
+
+            <h3>
+                Student Union
+            </h3>
+
+            <p>
+                View union members, responsibilities
+                and student requests.
+            </p>
+
+            <button>
+                View Union →
+            </button>
+
+        </div>
+
+
+        
+
+
+        
+       <!-- 07 SMART CANTEEN CARD -->
+
+     <div class="feature-card">
+     <div class="feature-icon">🍽️</div>
+
+         <span en
+
+         class="feature-number">05
+       
+         </span>
+
+     <h3>Smart Canteen</h3>
+        <p>
+         Explore the food menu, order your favourite
+         meals and track your orders online.
+        </p>
+
+         <a href="canteen.html">
+          Order Food →
+         </a>
+     </div>
+
+     <!-- 08 LOST AND FOUND -->
+
+    <div class="feature-card">
+
+        <div class="feature-icon">🔎</div>
+
+        <span class="feature-number">06</span>
+
+        <h3>Campus Lost & Found</h3>
+
+        <p>
+          Report missing belongings, browse found items
+          and submit a claim to recover your property.
+        </p>
+
+      <a href="lost-found.html">Find My Item →</a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= QUERY ================= -->
+
+<section
+    class="home-query"
+    id="querySection">
+
+    <div class="query-content">
+
+        <span>
+            STUDENT SUPPORT
+        </span>
+
+        <h2>
+            Have a Question?
+        </h2>
+
+        <p>
+            Tell the administration what you need.
+        </p>
+
+    </div>
+
+
+    <form id="queryForm">
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="text"
+            id="querySubject"
+            placeholder="Subject"
+            required
+        >
+
+        <textarea
+            id="queryMessage"
+            placeholder="Describe your query..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Submit Query
+        </button>
+
+    </form>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div>
+
+        <strong>
+            ⚡ TECH ENABLED CAMPUS
+        </strong>
+
+        <p>
+            Sri GVG Visalakshi College
+        </p>
+
+    </div>
+
+
+    <div>
+        Technology • Innovation • Education
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

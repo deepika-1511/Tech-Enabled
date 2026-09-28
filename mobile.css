@@ -1,0 +1,462 @@
+/* ======================================
+   TECH ENABLED CAMPUS
+   RESPONSIVE MOBILE STYLES
+   ====================================== */
+
+/* GLOBAL */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* PREVENT CONTENT OVERFLOW */
+
+main,
+section,
+.container,
+.content,
+.dashboard,
+.page-content {
+    max-width: 100%;
+    min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: break-word;
+}
+
+/* COMMON NAVBAR */
+
+#commonNavbar {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+#commonNavbar nav {
+    max-width: 100%;
+}
+
+#commonNavbar a {
+    text-decoration: none;
+}
+
+/* CAMPUS NAVIGATION */
+
+.search-area {
+    width: min(100% - 32px, 1000px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-area input {
+    min-width: 0;
+}
+
+.filters {
+    max-width: 100%;
+}
+
+.campus-map-container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.campus-layout {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* LOCATION CARDS */
+
+#locationContainer {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+#locationContainer .location-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* FORMS */
+
+.query-section form,
+#navigationQueryForm {
+    max-width: 100%;
+}
+
+#navigationQueryForm input,
+#navigationQueryForm textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* TABLES */
+
+.table-container,
+.table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    max-width: 100%;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+
+    #locationContainer {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .directory-section,
+    .campus-map-section,
+    .query-section {
+        width: calc(100% - 32px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* MOBILE PHONES */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    /* COMMON NAVBAR
+       Allow links to scroll if they do not fit */
+
+    #commonNavbar nav {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #commonNavbar nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        width: max-content;
+        min-width: 100%;
+        padding: 10px 14px;
+    }
+
+    #commonNavbar nav li {
+        flex-shrink: 0;
+    }
+
+    #commonNavbar nav a {
+        white-space: nowrap;
+    }
+
+    /* HEADINGS */
+
+    .intro {
+        width: calc(100% - 32px);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 35px 0 15px;
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: clamp(27px, 8vw, 38px);
+        line-height: 1.2;
+    }
+
+    .intro p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* SEARCH */
+
+    .navigation-main .search-area,
+    .search-area {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px;
+        width: calc(100% - 32px);
+        margin: 22px auto;
+    }
+
+    .navigation-main .search-area input,
+    .search-area input {
+        width: 100%;
+        min-width: 0;
+        height: 52px;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    .navigation-main .search-area button,
+    .search-area button {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        min-width: 0;
+        height: 52px;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    /* FILTER BUTTONS */
+
+    .navigation-main .filters,
+    .filters {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 10px;
+        width: calc(100% - 32px);
+        max-width: 100%;
+        margin: 15px auto 30px;
+        padding: 5px 0 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filters .filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 11px 15px;
+        font-size: 13px;
+    }
+
+    /* CAMPUS MAP */
+
+    .navigation-main .campus-map-section,
+    .campus-map-section {
+        width: calc(100% - 32px);
+        margin: 25px auto;
+        padding: 16px;
+    }
+
+    .map-heading h2 {
+        font-size: 24px;
+    }
+
+    .campus-map-container {
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .campus-layout {
+        width: 100%;
+        height: auto;
+    }
+
+    .map-locations .location-buttons {
+        display: grid;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .map-locations .location-buttons button {
+        width: 100%;
+        min-width: 0;
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    .selected-location {
+        padding: 15px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* DIRECTORY */
+
+    .navigation-main .directory-section,
+    .directory-section {
+        width: calc(100% - 32px);
+        margin: 35px auto;
+    }
+
+    .directory-section .section-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .directory-section .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .navigation-main #locationContainer,
+    #locationContainer {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+
+    #locationContainer .location-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #locationContainer .location-card h3 {
+        font-size: 19px;
+    }
+
+    #locationContainer .location-card p {
+        font-size: 14px;
+    }
+
+    #locationContainer .location-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #locationContainer .location-buttons button {
+        flex: 1 1 110px;
+        min-height: 44px;
+    }
+
+    /* STUDENT QUERY */
+
+    .query-section {
+        width: calc(100% - 32px);
+        margin: 35px auto;
+        padding: 20px 16px;
+    }
+
+    .query-heading h2 {
+        font-size: 24px;
+    }
+
+    #navigationQueryForm {
+        width: 100%;
+    }
+
+    #navigationQueryForm input,
+    #navigationQueryForm textarea,
+    #navigationQueryForm button {
+        width: 100%;
+        min-height: 48px;
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    #navigationQueryForm textarea {
+        min-height: 120px;
+    }
+
+    /* OTHER PROJECT PAGES */
+
+    .cards-container,
+    .card-grid,
+    .book-grid,
+    .books-grid,
+    .canteen-grid,
+    .food-grid,
+    .donor-grid,
+    .union-grid,
+    .lost-found-grid,
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+
+    .card,
+    .book-card,
+    .food-card,
+    .donor-card,
+    .union-card,
+    .item-card {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 25px 16px;
+        text-align: center;
+    }
+
+    footer p,
+    footer span {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+/* EXTRA-SMALL PHONES */
+
+@media (max-width: 360px) {
+
+    .map-locations .location-buttons {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .directory-section .section-heading {
+        align-items: flex-start;
+    }
+
+    .intro h1 {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation | Tech Enabled Campus</title>
+    
+    <link rel="stylesheet" href="blood.css">
+
+    <link rel="stylesheet" href="navbar.css">
+     <link rel="stylesheet" href="mobile.css">
+
+ </head>
+
+ <body>
+
+ <header id="commonNavbar"></header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="status">
+        ● CAMPUS BLOOD NETWORK ONLINE
+    </div>
+
+    <h1>
+        BLOOD
+        <span>DONATION🩸</span>
+    </h1>
+
+    <p>
+        Connect students and donors with emergency blood
+        requirements through a smart campus platform.
+    </p>
+
+</section>
+
+
+<!-- BLOOD SEARCH -->
+
+<section class="blood-search-section">
+
+    <div class="section-title">
+        <span>QUICK SEARCH</span>
+        <h2>Find Blood Donor</h2>
+    </div>
+
+    <div class="search-box">
+
+        <select id="searchBloodGroup">
+            <option value="">Select Blood Group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+        <button onclick="findDonors()">
+            🔍 Find Donors
+        </button>
+
+    </div>
+
+    <div id="donorResults" class="donor-results"></div>
+
+</section>
+
+
+<!-- DONOR REGISTRATION -->
+
+<section class="blood-card">
+
+    <div class="card-heading">
+        <span>DONOR NETWORK</span>
+        <h2>Register as a Donor</h2>
+        <p>
+            Students and staff can register their blood group
+            for campus emergency support.
+        </p>
+    </div>
+
+    <form id="donorForm">
+
+        <input
+            type="text"
+            id="donorName"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            type="text"
+            id="donorDepartment"
+            placeholder="Department / Class"
+            required
+        >
+
+        <select id="donorBloodGroup" required>
+
+            <option value="">
+                Select Blood Group
+            </option>
+
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+
+        </select>
+
+        <input
+            type="tel"
+            id="donorPhone"
+            placeholder="Contact Number"
+            required
+        >
+
+        <button type="submit">
+            🩸 Register as Donor
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- EMERGENCY REQUEST -->
+
+<section class="emergency-section">
+
+    <div class="emergency-info">
+
+        <span>EMERGENCY SERVICE</span>
+
+        <h2>
+            Need Blood?
+        </h2>
+
+        <p>
+            Submit an emergency blood requirement.
+            The request will be available to the campus
+            administration.
+        </p>
+
+    </div>
+
+
+    <form id="bloodRequestForm">
+
+        <input
+            type="text"
+            id="requestName"
+            placeholder="Patient / Student Name"
+            required
+        >
+
+        <select id="requestBloodGroup" required>
+
+            <option value="">
+                Required Blood Group
+            </option>
+
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+
+        </select>
+
+        <input
+            type="text"
+            id="requestHospital"
+            placeholder="Hospital / Location"
+            required
+        >
+
+        <input
+            type="tel"
+            id="requestPhone"
+            placeholder="Contact Number"
+            required
+        >
+
+        <textarea
+            id="requestMessage"
+            placeholder="Emergency details..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            🚨 Submit Emergency Request
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- STUDENT QUERY -->
+
+<section class="blood-query">
+
+    <div>
+
+        <span>STUDENT SUPPORT</span>
+
+        <h2>
+            Blood Donation Query
+        </h2>
+
+        <p>
+            Have a question about donors, blood groups
+            or emergency support?
+        </p>
+
+    </div>
+
+
+    <form id="bloodQueryForm">
+
+        <input
+            type="text"
+            id="bloodQueryName"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="text"
+            id="bloodQuerySubject"
+            placeholder="Subject"
+            required
+        >
+
+        <textarea
+            id="bloodQueryMessage"
+            placeholder="Your question..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Submit Query
+        </button>
+
+    </form>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <strong>⚡ TECH ENABLED CAMPUS</strong>
+
+    <p>
+        Sri GVG Visalakshi College
+    </p>
+
+</footer>
+
+
+<script src="navbar.js"></script>
+<script src="blood.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Library | Tech Enabled Campus</title>
+
+    <link rel="stylesheet" href="library.css">
+    <link rel="stylesheet" href="navbar.css">
+     <link rel="stylesheet" href="mobile.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header id="commonNavbar"></header>
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+<section class="library-hero">
+
+    <div class="status">
+        ● SMART LIBRARY ONLINE
+    </div>
+
+
+    <h1>
+        SMART
+        <span>LIBRARY📚</span>
+    </h1>
+
+
+    <p>
+        Search books, authors, categories, availability
+        and shelf locations through the digital campus library.
+    </p>
+
+
+    <!-- SEARCH -->
+
+    <div class="library-search">
+
+        <input
+            type="text"
+            id="bookSearch"
+            placeholder="Search by book title, author or category..."
+            oninput="searchBooks()"
+        >
+
+        <button onclick="searchBooks()">
+            🔍 Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LIBRARY STATS ================= -->
+
+<section class="library-stats">
+
+    <div class="stat-card">
+
+        <span>📚</span>
+
+        <div>
+            <strong id="totalBooks">
+                0
+            </strong>
+
+            <small>
+                Total Books
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span>✅</span>
+
+        <div>
+            <strong id="availableBooks">
+                0
+            </strong>
+
+            <small>
+                Available
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span>📖</span>
+
+        <div>
+            <strong id="issuedBooks">
+                0
+            </strong>
+
+            <small>
+                Issued
+            </small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORY FILTER ================= -->
+
+<section class="library-content">
+
+    <div class="library-section-title">
+
+        <div>
+
+            <span>
+                DIGITAL COLLECTION
+            </span>
+
+            <h2>
+                Browse Books
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="category-buttons"
+        id="categoryButtons">
+
+        <!-- JavaScript will create buttons -->
+
+    </div>
+
+
+    <!-- BOOK LIST -->
+
+    <div
+        class="books-grid"
+        id="booksGrid">
+
+        <!-- JavaScript will create books -->
+
+    </div>
+
+
+    <div
+        id="noBooks"
+        class="no-books"
+        style="display:none;">
+
+        <div>
+            📚
+        </div>
+
+        <h3>
+            No Books Found
+        </h3>
+
+        <p>
+            Try another title, author or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STUDENT QUERY ================= -->
+
+<section class="library-query">
+
+    <div class="query-info">
+
+        <span>
+            LIBRARY SUPPORT
+        </span>
+
+        <h2>
+            Can't Find a Book?
+        </h2>
+
+        <p>
+            Send your request to the library
+            administration.
+        </p>
+
+    </div>
+
+
+    <form id="libraryQueryForm">
+
+        <input
+            type="text"
+            id="libraryStudentName"
+            placeholder="Your Name"
+            required
+        >
+
+
+        <input
+            type="text"
+            id="libraryQuerySubject"
+            placeholder="Book / Subject"
+            required
+        >
+
+
+        <textarea
+            id="libraryQueryMessage"
+            placeholder="Tell us what book or information you need..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            Submit Library Query
+        </button>
+
+    </form>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>
+        ⚡ TECH ENABLED CAMPUS
+    </strong>
+
+    <p>
+        Sri GVG Visalakshi College
+    </p>
+
+</footer>
+
+
+<script src="navbar.js"></script>
+<script src="library.js"></script>
+
+
+</body>
+
+</html>

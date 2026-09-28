@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, #401b32, #080b18 40%, #040711 80%);
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+.blood-header {
+    min-height: 76px;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #070b17;
+    border-bottom: 1px solid #27334d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo > span {
+    color: #00eaff;
+    font-size: 25px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.logo small {
+    display: block;
+    color: #00eaff;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #8796b0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #00eaff;
+}
+
+.admin {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #7258ff;
+    padding: 9px 17px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+
+/* HERO */
+
+.hero {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    padding: 70px 0 50px;
+}
+
+.status {
+    display: inline-block;
+    color: #ff4d76;
+    border: 1px solid rgba(255, 77, 118, 0.35);
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 95px);
+    line-height: .9;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #ff4d76;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 25px auto 0;
+    color: #8996ad;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* COMMON */
+
+.blood-search-section,
+.blood-card,
+.emergency-section,
+.blood-query {
+    width: 90%;
+    max-width: 1050px;
+    margin: 0 auto 45px;
+}
+
+.section-title span,
+.card-heading span,
+.emergency-info span,
+.blood-query span {
+    color: #ff4d76;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.section-title h2,
+.card-heading h2,
+.emergency-info h2,
+.blood-query h2 {
+    margin-top: 8px;
+    font-size: 28px;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.search-box select,
+.search-box button {
+    height: 50px;
+}
+
+select,
+input,
+textarea {
+    background: #080f1e;
+    border: 1px solid #293a58;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+select {
+    padding: 0 15px;
+}
+
+.search-box select {
+    flex: 1;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    background: #ff426e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.15);
+}
+
+
+/* RESULTS */
+
+.donor-results {
+    margin-top: 20px;
+    display: grid;
+    gap: 12px;
+}
+
+.donor-result {
+    padding: 18px;
+    background: #0a1222;
+    border: 1px solid #273a58;
+    border-radius: 12px;
+}
+
+.donor-result strong {
+    color: #ff4d76;
+}
+
+.donor-result p {
+    color: #8392aa;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+
+/* DONOR CARD */
+
+.blood-card {
+    padding: 35px;
+    background: #080f1f;
+    border: 1px solid #263b59;
+    border-radius: 18px;
+}
+
+.card-heading p,
+.emergency-info p,
+.blood-query p {
+    color: #7f8da5;
+    line-height: 1.6;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#donorForm {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+input,
+#donorForm select,
+#bloodRequestForm select {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+}
+
+#donorForm button {
+    height: 48px;
+}
+
+
+/* EMERGENCY */
+
+.emergency-section {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+    padding: 35px;
+    background:
+        linear-gradient(145deg, #170c18, #090d19);
+    border: 1px solid #4a2638;
+    border-radius: 18px;
+}
+
+#bloodRequestForm {
+    display: grid;
+    gap: 12px;
+}
+
+#bloodRequestForm textarea {
+    min-height: 100px;
+    padding: 14px;
+    resize: vertical;
+}
+
+#bloodRequestForm button {
+    height: 48px;
+}
+
+
+/* QUERY */
+
+.blood-query {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+    padding: 35px;
+    background: #080f1f;
+    border: 1px solid #263b59;
+    border-radius: 18px;
+}
+
+#bloodQueryForm {
+    display: grid;
+    gap: 12px;
+}
+
+#bloodQueryForm input {
+    height: 48px;
+    padding: 0 14px;
+}
+
+#bloodQueryForm textarea {
+    min-height: 100px;
+    padding: 14px;
+    resize: vertical;
+}
+
+#bloodQueryForm button {
+    height: 48px;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+    padding: 35px;
+    text-align: center;
+    border-top: 1px solid #1d2c46;
+    color: #718098;
+    font-size: 13px;
+}
+
+footer strong {
+    color: #00eaff;
+}
+
+footer p {
+    margin-top: 7px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .blood-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .admin {
+        display: none;
+    }
+
+    #donorForm,
+    .emergency-section,
+    .blood-query {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        height: 48px;
+    }
+
+    .blood-card,
+    .emergency-section,
+    .blood-query {
+        padding: 22px;
+    }
+}

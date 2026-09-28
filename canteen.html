@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Smart Canteen | Tech Enabled Campus</title>
+    <link rel="stylesheet" href="canteen.css">
+    <link rel="stylesheet" href="navbar.css">
+    <script src="navbar.js" defer></script>
+    <script src="canteen.js" defer></script>
+     <link rel="stylesheet" href="mobile.css">
+</head>
+
+<body>
+
+<header id="commonNavbar"></header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">● SMART CAMPUS FOOD SERVICES</span>
+
+        <h1>SMART <span>CANTEEN</span></h1>
+
+        <p>
+            Delicious food, easy ordering and convenient
+            pickup. Explore your campus canteen digitally.
+        </p>
+
+        <a href="#menu" class="primary-btn">
+            Explore Menu ↓
+        </a>
+    </div>
+
+    <div class="hero-graphic">🍽️</div>
+</section>
+
+<section class="main-layout" id="menu">
+
+    <div class="menu-section">
+        <div class="section-heading">
+            <span>OUR FOOD COLLECTION</span>
+            <h2>Explore Our Menu</h2>
+            <p>Select your favourite food and place your order.</p>
+        </div>
+
+        <input
+            type="search"
+            id="foodSearch"
+            placeholder="🔍 Search food or drinks..."
+            aria-label="Search menu"
+        >
+
+        <div class="filters">
+            <button class="filter active" data-category="All">
+                All
+            </button>
+            <button class="filter" data-category="Breakfast">
+                Breakfast
+            </button>
+            <button class="filter" data-category="Lunch">
+                Lunch
+            </button>
+            <button class="filter" data-category="Snacks">
+                Snacks
+            </button>
+            <button class="filter" data-category="Drinks">
+                Drinks
+            </button>
+        </div>
+
+        <div id="foodGrid" class="food-grid"></div>
+    </div>
+
+    <aside class="cart-section">
+        <div class="cart-header">
+            <h2>🛒 Your Cart</h2>
+            <span id="cartCount">0 items</span>
+        </div>
+
+        <div id="cartItems" class="cart-items">
+            Your cart is empty.
+        </div>
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <form id="orderForm">
+            <h3>Pickup Details</h3>
+
+            <label for="studentName">Student Name</label>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="studentClass">Department / Class</label>
+            <input
+                type="text"
+                id="studentClass"
+                placeholder="e.g. III B.Sc. CS"
+                required
+            >
+
+            <label for="pickupTime">Pickup Time</label>
+            <select id="pickupTime" required>
+                <option value="">Select pickup time</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:30 PM">12:30 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="3:30 PM">3:30 PM</option>
+            </select>
+
+            <button type="submit" class="order-btn">
+                Place Order →
+            </button>
+        </form>
+
+        <p class="demo-note">
+            Demo ordering only. No online payment is collected.
+        </p>
+    </aside>
+</section>
+
+<section class="tracking-section">
+    <div class="section-heading">
+        <span>ORDER MANAGEMENT</span>
+        <h2>Track Your Order</h2>
+        <p>View your recently placed orders on this device.</p>
+    </div>
+
+    <div id="orderHistory" class="order-history"></div>
+</section>
+
+<div id="confirmationModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2>Order Placed!</h2>
+        <p>Your demo order has been saved successfully.</p>
+
+        <div class="order-number">
+            Order Number
+            <strong id="confirmedOrderId"></strong>
+        </div>
+
+        <p id="confirmedPickup"></p>
+
+        <button id="closeModal" class="primary-btn">
+            Continue
+        </button>
+    </div>
+</div>
+
+<footer>
+    <p>⚡ TECH ENABLED CAMPUS</p>
+    <small>
+        Smart Canteen • Sri GVG Visalakshi College
+    </small>
+</footer>
+
+</body>
+</html>

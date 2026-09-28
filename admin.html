@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Tech Enabled Campus</title>
+
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="mobile.css">
+
+</head>
+
+<body>
+
+<header class="admin-header">
+
+    <div class="brand">
+        <div class="brand-icon">⚡</div>
+
+        <div>
+            <strong>TECH ENABLED</strong>
+            <small>CAMPUS ADMIN</small>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-home">
+        ← Public Website
+    </a>
+
+</header>
+
+
+<!-- LOGIN -->
+
+<section id="loginSection" class="login-section">
+
+    <div class="login-card">
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+        <span>ADMIN ACCESS</span>
+
+        <h1>Campus Admin</h1>
+
+        <p>
+            Sign in to manage the smart campus.
+        </p>
+
+
+        <form id="loginForm">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                id="adminUsername"
+                placeholder="Enter username"
+                autocomplete="username"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+
+
+            <button type="submit">
+                SIGN IN
+            </button>
+
+        </form>
+
+
+        <div
+            id="loginMessage"
+            class="login-message">
+        </div>
+
+
+        <div class="demo-login">
+
+            <div>Demo Admin Account</div>
+
+            <strong>Username: admin</strong>
+
+            <strong>Password: admin123</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<main
+    id="dashboard"
+    class="dashboard hidden"
+>
+
+    <section class="dashboard-title">
+
+        <div>
+
+            <span>● ADMIN CONTROL CENTER</span>
+
+            <h1>Campus Dashboard</h1>
+
+            <p>
+                Welcome to the Tech Enabled Campus
+                administration panel.
+            </p>
+
+         </div>
+
+          <button
+            class="refresh-btn"
+            onclick="loadDashboard()"
+         >
+            ↻ Refresh
+         </button>
+          <button class="logout-btn" onclick="logoutAdmin()">
+          ⏻ Logout
+             </button>
+ </section>
+
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">💬</div>
+
+            <div>
+                <span>Student Queries</span>
+                <strong id="queryCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🩸</div>
+
+            <div>
+                <span>Blood Donors</span>
+                <strong id="donorCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🚨</div>
+
+            <div>
+                <span>Blood Requests</span>
+                <strong id="bloodRequestCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🎓</div>
+
+            <div>
+                <span>Union Requests</span>
+                <strong id="unionRequestCount">0</strong>
+            </div>
+
+             </div>
+               <div class="stat-card">
+             <div class="stat-icon">🍽️</div>
+               <div>
+            <span>Canteen Orders</span>
+              <strong id="canteenOrderCount">0</strong>
+              </div>
+                    </div>
+
+             
+           <!-- LOST & FOUND STATISTICS -->
+
+              <div class="stat-card">
+             <div class="stat-icon">🔎</div>
+              <div>
+             <span>Lost & Found</span>
+             <strong id="lostFoundCount">0</strong>
+             </div>
+             </div>
+
+                 <div class="stat-card">
+                <div class="stat-icon">📋</div>
+             <div>
+             <span>Ownership Claims</span>
+              <strong id="lostFoundClaimCount">0</strong>
+           </div>
+          </div>
+         </section>
+
+        <section class="admin-section">
+
+        <div class="section-heading">
+            <span>BLOOD NETWORK</span>
+            <h2>Registered Blood Donors</h2>
+        </div>
+
+        <div
+            id="donorsContainer"
+            class="data-container">
+        </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+            <span>EMERGENCY</span>
+            <h2>Blood Requests</h2>
+        </div>
+
+        <div
+            id="bloodRequestsContainer"
+            class="data-container">
+        </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+            <span>STUDENT UNION</span>
+            <h2>Union Requests</h2>
+        </div>
+
+        <div
+            id="unionRequestsContainer"
+            class="data-container">
+        </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+            <span>STUDENT SUPPORT</span>
+            <h2>Student Queries</h2>
+        </div>
+
+        <div
+            id="queriesContainer"
+            class="data-container">
+        </div>
+
+    </section>
+    <!-- SMART CANTEEN MANAGEMENT -->
+
+<section class="admin-section">
+    <div class="section-heading">
+        <span>FOOD SERVICES</span>
+        <h2>🍽️ Smart Canteen Orders</h2>
+    </div>
+
+    <div id="canteenOrdersContainer"
+         class="data-container"></div>
+</section>
+
+
+<!-- LOST AND FOUND MANAGEMENT -->
+
+<section class="admin-section">
+    <div class="section-heading">
+        <span>CAMPUS SERVICES</span>
+        <h2>🔎 Lost & Found Reports</h2>
+    </div>
+
+    <div id="lostFoundContainer"
+         class="data-container"></div>
+</section>
+
+</main>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>

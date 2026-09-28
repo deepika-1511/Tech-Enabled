@@ -1,0 +1,137 @@
+/* COMMON NAVIGATION DESIGN */
+
+#commonNavbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 4%;
+    background: #0b1730;
+    border-bottom: 1px solid #28445f;
+    font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 100;
+}
+
+#commonNavbar * {
+    box-sizing: border-box;
+}
+
+.common-brand a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand-symbol {
+    color: #ffac53;
+    font-size: 26px;
+}
+
+.common-brand strong {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.common-brand small {
+    display: block;
+    color: #00eaff;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.common-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+#commonNavbar .common-menu a {
+    color: #c8d8eb;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 11px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+#commonNavbar .common-menu a:hover,
+#commonNavbar .common-menu a.active {
+    color: #00eaff;
+    background: rgba(0, 234, 255, 0.12);
+}
+
+#commonNavbar .common-admin {
+    color: #00eaff;
+    border: 1px solid #00eaff;
+    padding: 10px 17px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    color: #00eaff;
+    border: 1px solid #00eaff;
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 1150px) {
+    #commonNavbar {
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+
+    #commonNavbar .common-menu {
+        display: none;
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    #commonNavbar .common-menu.show {
+        display: flex;
+    }
+
+    #commonNavbar .common-menu a {
+        display: block;
+        padding: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    #commonNavbar {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .common-brand strong {
+        font-size: 13px;
+    }
+
+    #commonNavbar .common-admin {
+        padding: 9px 12px;
+    }
+}
